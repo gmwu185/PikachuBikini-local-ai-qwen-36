@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮卡丘夢幻比基尼 | 秀彩莎 XUCAISHA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FDF6EC;
+            color: #3E2723;
+            line-height: 1.8;
+        }
+
+        /* ===== 導覽列 ===== */
+        nav {
+            background-color: #5D4037;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(62, 39, 35, 0.3);
+        }
+
+        nav .logo {
+            color: #FFF8E1;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        nav .logo span {
+            color: #FFD54F;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #EFEBE9;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD54F;
+        }
+
+        /* ===== 英雄橫幅 ===== */
+        .hero {
+            background: linear-gradient(135deg, #F9E6B7 0%, #FDF6EC 50%, #EFDBB5 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 213, 79, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(188, 143, 96, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFCA28, #FF8F00);
+            color: #3E2723;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #4E342E;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .hero h1 em {
+            color: #E65100;
+            font-style: normal;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #6D4C41;
+            margin-bottom: 30px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== 商品主圖區 ===== */
+        .product-showcase {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .product-image-frame {
+            background: linear-gradient(145deg, #F5E6D0, #E8D5B7);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(93, 64, 55, 0.15);
+            position: relative;
+        }
+
+        .product-image-frame::after {
+            content: '秀彩莎 XUCAISHA';
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 0.75rem;
+            color: #A1887F;
+            letter-spacing: 2px;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(180deg, #FFD54F 0%, #FFCA28 40%, #FFC107 100%);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pikachu-face {
+            width: 120px;
+            height: 90px;
+            background: #FFD54F;
+            border-radius: 50%;
+            position: relative;
+            border: 3px solid #E65100;
+        }
+
+        .pikachu-face::before {
+            content: '⚡';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+        }
+
+        .product-image-placeholder p {
+            margin-top: 20px;
+            color: #4E342E;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .product-details h2 {
+            font-size: 1.8rem;
+            color: #4E342E;
+            margin-bottom: 8px;
+        }
+
+        .product-details .subtitle {
+            font-size: 0.9rem;
+            color: #8D6E63;
+            margin-bottom: 20px;
+        }
+
+        .product-details .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #BF360C;
+            margin-bottom: 6px;
+        }
+
+        .product-details .price-note {
+            font-size: 0.85rem;
+            color: #8D6E63;
+            margin-bottom: 24px;
+        }
+
+        .product-details .description {
+            font-size: 0.95rem;
+            color: #5D4037;
+            margin-bottom: 24px;
+            line-height: 1.9;
+        }
+
+        /* 商品特色 */
+        .features {
+            background: #FFF8E1;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-left: 4px solid #FFCA28;
+        }
+
+        .features h3 {
+            font-size: 1rem;
+            color: #4E342E;
+            margin-bottom: 14px;
+        }
+
+        .features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .features ul li {
+            font-size: 0.88rem;
+            color: #6D4C41;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .features ul li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* 尺寸選擇 */
+        .size-section {
+            margin-bottom: 24px;
+        }
+
+        .size-section label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4E342E;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-options button {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #BCAAA4;
+            background: #FFF8E1;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5D4037;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size-options button:hover,
+        .size-options button.active {
+            border-color: #FF8F00;
+            background: #FFE082;
+            color: #3E2723;
+        }
+
+        /* 數量 */
+        .quantity-section {
+            margin-bottom: 28px;
+        }
+
+        .quantity-section label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4E342E;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .quantity-control button {
+            width: 44px;
+            height: 44px;
+            border: 2px solid #BCAAA4;
+            background: #FFF8E1;
+            font-size: 1.2rem;
+            color: #5D4037;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quantity-control button:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .quantity-control button:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .quantity-control button:hover {
+            background: #FFE082;
+        }
+
+        .quantity-control input {
+            width: 60px;
+            height: 44px;
+            border: 2px solid #BCAAA4;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3E2723;
+            background: #FFF8E1;
+        }
+
+        .quantity-control input:focus {
+            outline: none;
+        }
+
+        /* 購買按鈕 */
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #FF8F00, #E65100);
+            color: #FFF8E1;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
+        }
+
+        .buy-btn:hover {
+            background: linear-gradient(135deg, #FFA000, #EF6C00);
+            box-shadow: 0 8px 28px rgba(230, 81, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .buy-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ===== 商品細節 ===== */
+        .details-section {
+            background: linear-gradient(180deg, #FDF6EC, #F5E6D0);
+            padding: 70px 40px;
+        }
+
+        .details-section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #4E342E;
+            margin-bottom: 40px;
+        }
+
+        .detail-cards {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .detail-card {
+            background: #FFF8E1;
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(93, 64, 55, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .detail-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .detail-card h3 {
+            font-size: 1rem;
+            color: #4E342E;
+            margin-bottom: 10px;
+        }
+
+        .detail-card p {
+            font-size: 0.85rem;
+            color: #6D4C41;
+            line-height: 1.7;
+        }
+
+        /* ===== 底部 ===== */
+        footer {
+            background: #5D4037;
+            color: #BCAAA4;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.85rem;
+        }
+
+        footer .footer-brand {
+            color: #FFD54F;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        footer p {
+            margin-bottom: 6px;
+        }
+
+        /* ===== RWD ===== */
+        @media (max-width: 768px) {
+            .product-showcase {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .detail-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .features ul {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav>
+        <div class="logo">秀彩莎 <span>XUCAISHA</span></div>
+        <ul>
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">商品</a></li>
+            <li><a href="#">關於我們</a></li>
+            <li><a href="#">聯絡</a></li>
+        </ul>
+    </nav>
+
+    <!-- 英雄橫幅 -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ 2025 夏日限定 ⚡</div>
+            <h1>皮卡丘夢幻<em>黃色比基尼</em><br>夏日出遊必備</h1>
+            <p>陽光、海灘、沙灘～穿上這套超萌皮卡丘比基尼，成為泳池邊最耀眼的星吧！✦ 復古質感 × 可愛元素，讓你從早美到晚～</p>
+        </div>
+    </section>
+
+    <!-- 商品主區域 -->
+    <section class="product-showcase">
+        <!-- 左側：圖片 -->
+        <div class="product-image-frame">
+            <img src="product.jpg" alt="皮卡丘黃色比基尼商品照" style="width:100%;border-radius:14px;display:block;">
+        </div>
+
+        <!-- 右側：商品資訊 -->
+        <div class="product-details">
+            <h2>皮卡丘黃色繫帶比基尼</h2>
+            <p class="subtitle">Pikachu Yellow String Bikini Set — 掛脖三角上衣 + 側邊繫帶褲</p>
+
+            <p class="price">NT$ 1,280</p>
+            <p class="price-note">含運費 ｜ 限時優惠價 ✦ 原價 NT$ 1,680</p>
+
+            <p class="description">
+                這套比基尼以明亮的暖黃色為主調，上衣採用復古掛脖三角設計，正面印有超萌的<strong>皮卡丘卡通臉</strong>——圓圓的黑眼睛配上紅頰，可愛度滿分！下身為同色系細繩側邊繫帶設計，可以依照自己的喜好調整鬆緊，舒適又貼身。
+                <br><br>
+                無論是去海邊玩水、泳池派對，還是陽光沙灘拍照，這套都能讓你成為眾人目光的焦點～ ♪ 搭配一頂草帽和涼鞋，完美度假LOOK就完成啦！
+            </p>
+
+            <!-- 商品特色 -->
+            <div class="features">
+                <h3>✦ 商品特色 ✦</h3>
+                <ul>
+                    <li>超萌皮卡丘印花圖案</li>
+                    <li>掛脖式三角上衣設計</li>
+                    <li>暖黃色調，顯白提氣色</li>
+                    <li>側邊繫帶可調整</li>
+                    <li>柔軟快乾材質</li>
+                    <li>適合海灘、泳池、沙灘</li>
+                </ul>
+            </div>
+
+            <!-- 尺寸選擇 -->
+            <div class="size-section">
+                <label>選擇尺碼：</label>
+                <div class="size-options">
+                    <button onclick="selectSize(this)">S</button>
+                    <button class="active" onclick="selectSize(this)">M</button>
+                    <button onclick="selectSize(this)">L</button>
+                    <button onclick="selectSize(this)">XL</button>
+                </div>
+            </div>
+
+            <!-- 數量 -->
+            <div class="quantity-section">
+                <label>購買數量：</label>
+                <div class="quantity-control">
+                    <button onclick="changeQty(-1)">−</button>
+                    <input type="number" id="qty" value="1" min="1" max="10">
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+            </div>
+
+            <!-- 購買按鈕 -->
+            <button class="buy-btn" onclick="handleBuy()">
+                ⚡ 立即下單購買 ⚡
+            </button>
+        </div>
+    </section>
+
+    <!-- 商品細節卡片 -->
+    <section class="details-section">
+        <h2>✦ 為什麼選擇這件比基尼？</h2>
+        <div class="detail-cards">
+            <div class="detail-card">
+                <div class="icon">🌟</div>
+                <h3>顯白暖黃色</h3>
+                <p>精心調配的暖黃色調，非常襯膚色，穿上瞬間氣色提升，拍照超上鏡～</p>
+            </div>
+            <div class="detail-card">
+                <div class="icon">💛</div>
+                <h3>舒適材質</h3>
+                <p>選用柔軟親膚的快乾面料，貼身不悶熱，玩水一整天也輕鬆自在。</p>
+            </div>
+            <div class="detail-card">
+                <div class="icon">⚡</div>
+                <h3>可愛皮卡丘</h3>
+                <p>上衣的皮卡丘印花是最大亮點！超萌超有梗，和朋友出遊絕對是最吸睛的。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="footer-brand">秀彩莎 XUCAISHA</div>
+        <p>© 2025 XUCAISHA. All Rights Reserved.</p>
+        <p>本網頁僅為展示用途 ｜ 聯繫我們：service@xiaocaisha.com</p>
+    </footer>
+
+    <script>
+        // 尺碼選擇
+        function selectSize(btn) {
+            document.querySelectorAll('.size-options button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // 數量調整
+        function changeQty(delta) {
+            const input = document.getElementById('qty');
+            let val = parseInt(input.value) || 1;
+            val = Math.max(1, Math.min(10, val + delta));
+            input.value = val;
+        }
+
+        // 購買按鈕
+        function handleBuy() {
+            const size = document.querySelector('.size-options button.active')?.textContent || '未選擇';
+            const qty = document.getElementById('qty').value;
+
+            alert(
+                '✨ 感謝您的購買！✨\n\n' +
+                '商品：皮卡丘黃色繫帶比基尼\n' +
+                '尺碼：' + size + '\n' +
+                '數量：' + qty + '\n\n' +
+                '已加入購物車 🛒\n' +
+                '謝謝您選擇秀彩莎 XUCAISHA！'
+            );
+        }
+    </script>
+
+</body>
+</html>
